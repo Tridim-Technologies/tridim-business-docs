@@ -20,7 +20,7 @@ See [the workflow](product/workflow.md) for the current boundaries between these
 - Invoicing, manual payment allocation, reversals, and finance exports
 - A Daraja M-Pesa Express sandbox flow for synthetic data
 
-The [capabilities page](product/capabilities.md) lists important limitations.
+The [capabilities page](product/capabilities.md) lists important limitations. Task-based [usage guides](guides/sales-and-delivery.md) walk through the current sales, delivery, time, expense, and finance workflows.
 
 ## Product direction
 
