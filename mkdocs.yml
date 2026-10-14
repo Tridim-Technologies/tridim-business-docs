@@ -46,6 +46,7 @@ nav:
   - Guides:
       - Sales and delivery: guides/sales-and-delivery.md
       - Time and expenses: guides/time-and-expenses.md
+      - People and teams: guides/people-and-teams.md
       - Finance operations: guides/finance-operations.md
   - Current status: status.md
   - GitHub: https://github.com/Tridim-Technologies/tridim-business

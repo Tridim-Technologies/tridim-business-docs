@@ -17,6 +17,8 @@ Route details are based on the current application source. Use the linked reposi
 | Session | `GET` | `/api/csrf/` | Obtain a CSRF token for cookie-authenticated requests |
 | Session | `GET`, `POST`, `DELETE` | `/api/session/` | Read session, sign in, or sign out |
 | Organizations | `GET` | `/api/organizations/` | List organizations available to the signed-in user |
+| Employees | `GET`, `POST` | `/api/organizations/{organization_id}/employees/` | Read the active employee directory or create a work profile (owner/admin/operations); managers may request `?status=all` to include inactive profiles |
+| Employees | `PATCH` | `/api/organizations/{organization_id}/employees/{profile_id}/` | Update a work profile or its active status (owner/admin/operations only) |
 | Customers | `GET`, `POST` | `/api/organizations/{organization_id}/customers/` | List, filter, search, or create customers |
 | Customers | `PATCH`, `POST` | `/api/organizations/{organization_id}/customers/{customer_id}/` | Update a customer |
 | Quotations | `GET`, `POST` | `/api/organizations/{organization_id}/quotations/` | List or create quotations |

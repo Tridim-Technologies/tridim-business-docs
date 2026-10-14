@@ -2,7 +2,7 @@
 
 ## Internal alpha
 
-Tridim Business is in active development as an internal alpha. The core workflow includes customer and quotation records, linked jobs, time review, synthetic expense claims, invoicing, manual payment recording, finance exports, and a sandbox-only payment attempt flow.
+Tridim Business is in active development as an internal alpha. The core workflow includes customer and quotation records, linked jobs, time review, synthetic expense claims, an employee work directory, invoicing, manual payment recording, finance exports, and a sandbox-only payment attempt flow.
 
 ## Availability
 
