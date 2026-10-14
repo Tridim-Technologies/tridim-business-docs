@@ -1,27 +1,72 @@
-# Tridim Business Platform
+<div class="landing-hero" markdown>
 
-**Tridim Business is an all-in-one business operations platform being developed by Tridim Technologies.** It is intended to connect customer records, quotations, job delivery, staff time and expense review, invoicing, payments, and operational reporting in one workflow.
+<div class="hero-copy" markdown>
 
-The product is currently an **internal alpha**. It is under active development and is not a generally available hosted service. The pages here describe what exists today and distinguish it from longer-term product intent.
+<p class="eyebrow">OPEN-SOURCE BUSINESS OPERATIONS PLATFORM</p>
 
-## One connected workflow
+# Understand the work. Run the business.
 
-A business can start with a customer, prepare a quotation, and record the customer's decision. An accepted quotation can create a linked job. Team members can update delivery status and submit time records or synthetic expense claims for review. Finance members can issue an invoice and record manual payments against it.
+Tridim Business connects customer records, quotations, job delivery, staff time, expenses and finance workflows in one platform. The public project is building a dependable foundation for businesses across markets.
 
-See [the workflow](product/workflow.md) for the current boundaries between these steps.
+[Read the architecture](architecture.md){ .md-button .md-button--primary }
+[Explore the project on GitHub](https://github.com/Tridim-Technologies/tridim-business){ .text-link }
 
-## What is available in the alpha?
+</div>
 
-- Customer and quotation management
-- Jobs linked to accepted quotations
-- Job status and delivery notes
-- Time entry submission and review
-- Synthetic expense claim submission and review
-- Invoicing, manual payment allocation, reversals, and finance exports
-- A Daraja M-Pesa Express sandbox flow for synthetic data
+<aside class="status-card" markdown>
 
-The [capabilities page](product/capabilities.md) lists important limitations. Task-based [usage guides](guides/sales-and-delivery.md) walk through the current sales, delivery, time, expense, and finance workflows.
+<span class="status-label"><span class="status-dot"></span> Internal alpha</span>
 
-## Product direction
+## One guide for builders and operators
 
-The goal is a modular business platform that can grow across markets. The present build is an early foundation; broad market fit, production readiness, and the needs of businesses in different jurisdictions have not yet been validated.
+The platform is under active development and is not a hosted customer service. These pages explain what works today, what remains in progress, and how the current application is put together.
+
+[See current priorities →](roadmap.md){ .card-link }
+
+</aside>
+</div>
+
+<div class="platform-strip" markdown>
+
+<div><strong>Django + React</strong><span>Python API and TypeScript web app</span></div>
+<div><strong>PostgreSQL</strong><span>Relational data foundation</span></div>
+<div><strong>Organization roles</strong><span>Tenant-scoped business access</span></div>
+<div><strong>Sandbox payments</strong><span>Manual finance controls stay explicit</span></div>
+
+</div>
+
+## Choose a path through the platform
+
+Use these guides to understand the product and the current implementation. Public documentation describes the open-source platform only.
+
+<div class="docs-grid" markdown>
+
+<a class="docs-card" href="product/workflow/"><span class="card-kicker">PRODUCT</span><strong>How work flows</strong><span>Follow customers, quotations, delivery, time, expenses and invoicing through the current workflow.</span><span class="card-link">Read the guide →</span></a>
+
+<a class="docs-card" href="product/capabilities/"><span class="card-kicker">PRODUCT</span><strong>Current capabilities</strong><span>See what is implemented, what is limited, and what remains outside the alpha.</span><span class="card-link">Review capabilities →</span></a>
+
+<a class="docs-card" href="guides/sales-and-delivery/"><span class="card-kicker">OPERATIONS</span><strong>Sales and delivery</strong><span>Learn the customer, quotation and job workflow, including the current role boundaries.</span><span class="card-link">Read the guide →</span></a>
+
+<a class="docs-card" href="guides/finance-operations/"><span class="card-kicker">OPERATIONS</span><strong>Finance operations</strong><span>Understand invoices, manual receipts, allocations, reversals and sandbox payment attempts.</span><span class="card-link">Read the guide →</span></a>
+
+<a class="docs-card" href="architecture/"><span class="card-kicker">BUILDERS</span><strong>Architecture map</strong><span>Explore the web app, backend domains, database and external sandbox boundary.</span><span class="card-link">Explore architecture →</span></a>
+
+<a class="docs-card" href="api-explorer/"><span class="card-kicker">BUILDERS</span><strong>API explorer</strong><span>Search the current HTTP routes, methods and authentication expectations.</span><span class="card-link">Explore API routes →</span></a>
+
+</div>
+
+## What is in the alpha?
+
+- Customer and quotation management, including controlled quotation transitions.
+- Jobs linked to accepted quotations, with assignments, delivery notes and status history.
+- Staff time submission and review, plus synthetic expense claims.
+- Invoicing, manual payment recording and allocation, reversals, and finance exports.
+- A sandbox-only M-Pesa Express flow for synthetic data. A sandbox attempt is not a finance receipt.
+
+The [capabilities page](product/capabilities.md) explains important limits. The [roadmap](roadmap.md) shows the current delivery sequence and open-source priorities.
+
+<div class="site-note" markdown>
+
+**Current availability:** internal alpha only. Do not use real business records or production payment credentials. Market-specific compliance and production readiness have not been established.
+
+</div>
