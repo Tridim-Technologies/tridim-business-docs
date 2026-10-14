@@ -26,8 +26,8 @@ Quotation pricing and taxes are not calculated by the current product.
 ## Expense claims
 
 - Submit synthetic expense claims for a job.
-- Reviewers can return, waive missing evidence, approve, or reject a claim.
-- The alpha has no receipt upload capability and must not be used with real expense data.
+- Reviewers can return, waive missing evidence, approve, or reject a claim; accepted evidence can satisfy the receipt requirement for its claim version.
+- A disabled-by-default local development path supports generated synthetic JPEG, PNG, and PDF receipts after validation and malware scanning. It must not be used with real expense data.
 
 ## Invoicing and payments
 
@@ -38,4 +38,4 @@ Quotation pricing and taxes are not calculated by the current product.
 
 ## Not yet provided
 
-The current product does not provide a complete accounting ledger, tax calculation, payroll, real expense evidence storage, live payment processing, or a public hosted service. Features and boundaries can change as development continues.
+The current product does not provide a complete accounting ledger, tax calculation, payroll, production expense evidence storage, live payment processing, or a public hosted service. Features and boundaries can change as development continues.

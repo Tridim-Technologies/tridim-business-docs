@@ -8,7 +8,7 @@ Tridim Business is being built around linked operational records, so teams can f
 2. **Prepare a quotation.** Record a proposed scope and manage the customer's decision. Tax and quotation totals are not calculated by the current product.
 3. **Start a job.** An accepted quotation can create one linked job. Members can be assigned and update job status and delivery notes.
 4. **Record work.** Assigned members can submit time entries for review.
-5. **Review expenses.** Members can submit synthetic expense claims linked to a job. Reviewers can request changes, waive missing evidence, approve, or reject. Receipt uploads and real expense data are not supported.
+5. **Review expenses.** Members can submit synthetic expense claims linked to a job. Reviewers can request changes, waive missing evidence, approve, or reject. Generated receipt files can be used only through the disabled-by-default local development path; real expense data is not supported.
 6. **Invoice and record collection.** Finance members can create an invoice from completed work, record manual receipts, allocate them to invoices, and reverse allocations or receipts.
 7. **Review finance exports.** Finance members can export available invoice and payment data.
 
