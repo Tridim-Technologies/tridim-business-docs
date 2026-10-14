@@ -8,6 +8,8 @@ docs_dir: site-docs
 theme:
   name: material
   features:
+    - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
     - navigation.expand
     - navigation.top
@@ -15,10 +17,17 @@ theme:
     - search.suggest
     - search.highlight
 
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/javascripts/api-explorer.js
+
 markdown_extensions:
   - admonition
   - attr_list
   - def_list
+  - md_in_html
   - tables
   - toc:
       permalink: true
@@ -26,7 +35,10 @@ markdown_extensions:
   - pymdownx.superfences
 
 nav:
-  - Overview: index.md
+  - Home: index.md
+  - Roadmap: roadmap.md
+  - Architecture: architecture.md
+  - API explorer: api-explorer.md
   - Product:
       - Workflow: product/workflow.md
       - Capabilities: product/capabilities.md
@@ -36,3 +48,4 @@ nav:
       - Time and expenses: guides/time-and-expenses.md
       - Finance operations: guides/finance-operations.md
   - Current status: status.md
+  - GitHub: https://github.com/Tridim-Technologies/tridim-business
