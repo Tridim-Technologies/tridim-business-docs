@@ -30,7 +30,12 @@ A manual payment entry records an externally confirmed receipt; it does not init
 
 Owners, admins, and finance members can start a sandbox M-Pesa Express attempt from an issued KES invoice with available balance. Enter a Kenyan phone number and a whole-KES amount no greater than the available balance, then confirm the browser prompt. Use only a phone number you control for testing. The attempt stores the number for provider-response verification; the UI and attempt-list response do not display it.
 
-The invoice shows the attempt state after reload. Use **Refresh status** to see a callback/query result received since the page was opened. Sandbox requests are not live payments, and a sandbox attempt does not create a receipt.
+The invoice shows the attempt state after reload. After a callback is received,
+**Refresh status** retries verification with the sandbox query. A provider
+acknowledgement without a final result leaves the attempt pending; refresh
+again later to check for a final result. A cancelled prompt is not a payment.
+Sandbox requests are not live payments, and a sandbox attempt does not create a
+receipt.
 
 When the provider result is confirmed as successful, record the receipt through **Record a payment** with method **Mobile money** and the attempt's checkout reference. Then allocate it to the invoice as described above. A callback or query result alone never changes the invoice balance.
 
