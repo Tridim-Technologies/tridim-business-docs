@@ -31,4 +31,8 @@ nav:
       - Workflow: product/workflow.md
       - Capabilities: product/capabilities.md
       - Security and data: product/security-and-data.md
+  - Guides:
+      - Sales and delivery: guides/sales-and-delivery.md
+      - Time and expenses: guides/time-and-expenses.md
+      - Finance operations: guides/finance-operations.md
   - Current status: status.md
