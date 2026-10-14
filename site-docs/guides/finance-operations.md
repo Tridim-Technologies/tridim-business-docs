@@ -26,6 +26,14 @@ The app does not calculate tax. The invoice total is calculated from the saved q
 
 A manual payment entry records an externally confirmed receipt; it does not initiate a bank, card, or mobile-money transfer. The Daraja M-Pesa Express attempt flow is sandbox-only and does not automatically create a finance receipt.
 
+## Try a sandbox M-Pesa Express prompt
+
+Owners, admins, and finance members can start a sandbox M-Pesa Express attempt from an issued KES invoice with available balance. Enter a Kenyan phone number and a whole-KES amount no greater than the available balance, then confirm the browser prompt. Use only a phone number you control for testing. The attempt stores the number for provider-response verification; the UI and attempt-list response do not display it.
+
+The invoice shows the attempt state after reload. Use **Refresh status** to see a callback/query result received since the page was opened. Sandbox requests are not live payments, and a sandbox attempt does not create a receipt.
+
+When the provider result is confirmed as successful, record the receipt through **Record a payment** with method **Mobile money** and the attempt's checkout reference. Then allocate it to the invoice as described above. A callback or query result alone never changes the invoice balance.
+
 ## Correct an invoice or payment record
 
 - **Payment allocation:** Choose **Reverse allocation** when an amount was applied to the wrong invoice. The reversal is recorded and the amount becomes unapplied again.
@@ -46,5 +54,5 @@ The invoice register shows issued and void invoices with balances derived from a
 
 - The exports are not accounting statements. They do not perform bank matching, tax calculations, revenue recognition, or ledger balancing.
 - Currencies remain separate; the app does not convert or combine different currencies.
-- A sandbox payment attempt is not a live payment and does not itself create a finance receipt.
+- A sandbox payment attempt is not a live payment and does not itself create a finance receipt. Live tenant payment processing is not available.
 - Confirm all values through your existing financial process before relying on them outside this alpha.

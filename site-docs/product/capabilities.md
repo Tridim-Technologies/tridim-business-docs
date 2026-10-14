@@ -27,7 +27,7 @@ Quotation pricing and taxes are not calculated by the current product.
 - Create invoices from completed jobs.
 - Correct invoices with a recorded reason.
 - Record manual receipts, allocate and reverse payments, and export finance data.
-- Attempt sandbox M-Pesa Express payments with synthetic data. Sandbox attempts do not settle real payments or automatically create finance receipts.
+- Initiate and track sandbox M-Pesa Express attempts from issued KES invoice cards. Use a phone number controlled by the test operator; the number is retained on the attempt for provider-response verification and is not shown in the UI or attempt-list response. Sandbox attempts do not settle live payments or automatically create finance receipts.
 
 ## Not yet provided
 
