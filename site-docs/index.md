@@ -49,6 +49,8 @@ Use these guides to understand the product and the current implementation. Publi
 
 <a class="docs-card" href="guides/finance-operations/"><span class="card-kicker">OPERATIONS</span><strong>Finance operations</strong><span>Understand invoices, manual receipts, allocations, reversals and sandbox payment attempts.</span><span class="card-link">Read the guide →</span></a>
 
+<a class="docs-card" href="guides/people-and-teams/"><span class="card-kicker">OPERATIONS</span><strong>People and teams</strong><span>Learn how work profiles connect to organization membership and role-based access.</span><span class="card-link">Read the guide →</span></a>
+
 <a class="docs-card" href="architecture/"><span class="card-kicker">BUILDERS</span><strong>Architecture map</strong><span>Explore the web app, backend domains, database and external sandbox boundary.</span><span class="card-link">Explore architecture →</span></a>
 
 <a class="docs-card" href="api-explorer/"><span class="card-kicker">BUILDERS</span><strong>API explorer</strong><span>Search the current HTTP routes, methods and authentication expectations.</span><span class="card-link">Explore API routes →</span></a>
@@ -60,6 +62,7 @@ Use these guides to understand the product and the current implementation. Publi
 - Customer and quotation management, including controlled quotation transitions.
 - Jobs linked to accepted quotations, with assignments, delivery notes and status history.
 - Staff time submission and review, plus synthetic expense claims.
+- An employee work directory with organization-scoped profiles and manager-controlled updates.
 - Invoicing, manual payment recording and allocation, reversals, and finance exports.
 - A sandbox-only M-Pesa Express flow for synthetic data. A sandbox attempt is not a finance receipt.
 

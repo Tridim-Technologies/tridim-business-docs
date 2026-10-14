@@ -16,6 +16,13 @@ Quotation pricing and taxes are not calculated by the current product.
 - Add delivery notes.
 - Submit and review job time entries.
 
+## People and teams
+
+- Maintain organization-scoped employee work profiles with a display name, job title, department, and active status.
+- Employees can view active directory profiles. Owner, admin, and operations roles can create and update profiles, including restoring inactive profiles.
+- Profiles use existing organization membership and do not create accounts or change access roles.
+- The directory does not collect personal contact details, salary, payroll, government identifiers, or home addresses. Leave requests and employee invitations are not included.
+
 ## Expense claims
 
 - Submit synthetic expense claims for a job.
