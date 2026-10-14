@@ -1,0 +1,34 @@
+site_name: Tridim Business Platform
+site_description: Public product information and documentation for Tridim Business.
+site_url: https://tridim-technologies.github.io/tridim-business-docs/
+repo_url: https://github.com/Tridim-Technologies/tridim-business-docs
+repo_name: Tridim-Technologies/tridim-business-docs
+docs_dir: site-docs
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+
+nav:
+  - Overview: index.md
+  - Product:
+      - Workflow: product/workflow.md
+      - Capabilities: product/capabilities.md
+      - Security and data: product/security-and-data.md
+  - Current status: status.md
