@@ -8,6 +8,8 @@ This roadmap covers the public, open-source Tridim Business platform. It reflect
 
 The platform has an organization-scoped foundation and a connected workflow for customers, quotations, jobs, delivery, time, synthetic expense claims and finance. Finance supports invoices, manually recorded receipts, allocations, reversals and exports. The employee directory provides work-only profiles linked to organization memberships. The gated expense-evidence path is implemented for local synthetic files only; it is not ready for real files. Daraja M-Pesa Express is available for sandbox attempts only; it does not settle payments or create finance receipts automatically.
 
+The local synthetic PostgreSQL backup/restore rehearsal has passed. The internal-alpha planning baseline is RPO up to 24 hours, RTO by the next business day, and a seven-day recovery window. These are planning assumptions, not customer commitments or configured/verified hosted recovery targets. Cloud Monitoring and Cloud Logging are the preferred future monitoring direction; no project, services, retention, or alert routing are configured.
+
 ## Milestones
 
 | Milestone | Focus | Current state |
@@ -22,7 +24,7 @@ The platform has an organization-scoped foundation and a connected workflow for 
 
 ## Next priority
 
-Advance internal alpha readiness next. Review the existing access and data safeguards, backup/restore rehearsal, and monitoring/incident instructions using local synthetic data; record unresolved owners and decisions. This work excludes hosted deployment, real business data, and live payments. The uncancelled Daraja sandbox handset follow-up remains deferred in [core issue #35](https://github.com/Tridim-Technologies/tridim-business/issues/35) until explicitly scheduled.
+Continue internal alpha readiness next. The local synthetic backup/restore path and planning targets are documented; review remaining access/data safeguards, monitoring and incident instructions, and record unresolved owners. Hosted deployment, real business data, and live payments remain deferred. The uncancelled Daraja sandbox handset follow-up remains deferred in [core issue #35](https://github.com/Tridim-Technologies/tridim-business/issues/35) until explicitly scheduled.
 
 ## Later candidates
 
