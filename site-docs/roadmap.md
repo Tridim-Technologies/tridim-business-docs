@@ -6,7 +6,7 @@ This roadmap covers the public, open-source Tridim Business platform. It reflect
 
 ## Current baseline
 
-The platform has an organization-scoped foundation and a connected workflow for customers, quotations, jobs, delivery, time, synthetic expense claims and finance. Finance supports invoices, manually recorded receipts, allocations, reversals and exports. The employee directory provides work-only profiles linked to organization memberships. The gated expense-evidence path is implemented for local synthetic files only; it is not ready for real files. Daraja M-Pesa Express is available for sandbox attempts only; it does not settle payments or create finance receipts automatically.
+The platform has an organization-scoped foundation and a connected workflow for customers, quotations, jobs, delivery, time, synthetic expense claims and finance. Finance supports invoices, manually recorded receipts, allocations, reversals and exports. The People area provides work-only employee profiles, basic leave requests, and one-time organization invitations. Invitation links are shared manually because email delivery is not configured. The gated expense-evidence path is implemented for local synthetic files only; it is not ready for real files. Daraja M-Pesa Express is available for sandbox attempts only; it does not settle payments or create finance receipts automatically.
 
 The local synthetic PostgreSQL backup/restore rehearsal has passed. The internal-alpha planning baseline is RPO up to 24 hours, RTO by the next business day, and a seven-day recovery window. These are planning assumptions, not customer commitments or configured/verified hosted recovery targets. Cloud Monitoring and Cloud Logging are the preferred future monitoring direction; no project, services, retention, or alert routing are configured.
 
@@ -16,7 +16,7 @@ The local synthetic PostgreSQL backup/restore rehearsal has passed. The internal
 | --- | --- | --- |
 | Core business workflow | Customers, quotations, job delivery, time and synthetic claims | Implemented in the internal alpha; continue improving usability and coverage |
 | Expense evidence | Private local synthetic upload, scanning, and claim-version access | Implemented and documented for local synthetic use in [core issue #61](https://github.com/Tridim-Technologies/tridim-business/issues/61); real files remain out of scope until production storage, isolation, retention, and support controls are addressed |
-| Core HR directory | Work profiles linked to organization membership | In progress; no payroll, leave management, or employee invitations |
+| Core HR | Work profiles, basic leave requests, role-bounded organization invitations | Implemented in the internal alpha; no payroll or leave-entitlement calculations |
 | Finance foundation | Invoices, manual receipts, allocation, reversals and exports | Implemented for synthetic workflows; this is not a full accounting ledger |
 | Sandbox payment verification | Callback handling, query reconciliation and accurate pending states | In progress; confirm final simulator responses and preserve manual finance controls |
 | Internal alpha readiness | Access review, data safeguards, recovery instructions and operating checks | In progress; keep real business data out until safeguards and ownership are reviewed |

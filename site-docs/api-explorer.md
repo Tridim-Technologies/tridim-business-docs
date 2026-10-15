@@ -2,7 +2,7 @@
 
 This page is a searchable route catalog for the current application API. The routes support the Tridim Business web app and internal alpha workflows; they are not a versioned public integration contract. There is no published OpenAPI schema yet.
 
-Route details are based on the current application source. Use the linked repository for implementation details. All organization-scoped routes require a signed-in user with membership in the organization, and permissions vary by role.
+Route details are based on the current application source. Use the linked repository for implementation details. Organization-scoped routes require a signed-in member; public invitation inspect/accept routes require a valid one-time token. Permissions vary by role.
 
 | Resource | Method | Route | Purpose |
 | --- | --- | --- | --- |
@@ -11,6 +11,10 @@ Route details are based on the current application source. Use the linked reposi
 | Session | `GET` | `/api/csrf/` | Obtain a CSRF token for cookie-authenticated requests |
 | Session | `GET`, `POST`, `DELETE` | `/api/session/` | Read session, sign in, or sign out |
 | Organizations | `GET` | `/api/organizations/` | List organizations available to the signed-in user |
+| Invitations | `POST` | `/api/invitations/inspect/` | Inspect a valid one-time invitation using a token in the JSON request body |
+| Invitations | `POST` | `/api/invitations/accept/` | Accept an invitation with a signed-in matching account, or create an account and accept |
+| Invitations | `GET`, `POST` | `/api/organizations/{organization_id}/invitations/` | List recent invitations or create an invitation link (owner/admin; role limits apply) |
+| Invitations | `POST` | `/api/organizations/{organization_id}/invitations/{invitation_id}/revoke/` | Revoke a pending invitation (owner/admin) |
 | Employees | `GET`, `POST` | `/api/organizations/{organization_id}/employees/` | Read the active employee directory or create a work profile (owner/admin/operations); managers may request `?status=all` to include inactive profiles |
 | Employees | `PATCH` | `/api/organizations/{organization_id}/employees/{profile_id}/` | Update a work profile or its active status (owner/admin/operations only) |
 | Leave requests | `GET`, `POST` | `/api/organizations/{organization_id}/leave-requests/` | List the caller's requests or organization requests for owner/admin/operations; submit a request for the signed-in member |
@@ -55,6 +59,7 @@ Route details are based on the current application source. Use the linked reposi
 - JSON is used for request and response bodies unless the route returns a CSV export or a plain-text health response.
 - Evidence uploads use `multipart/form-data`, the session cookie, and a CSRF token. Let the browser set the multipart `Content-Type` boundary. Evidence downloads are per-request authorized; finance metadata access does not grant receipt access.
 - The Daraja callback is a provider endpoint. It is not an alternate login method and does not create a finance receipt.
+- Invitation routes use one-time tokens; the raw token is returned only when a manager creates an invitation. The app does not send invitation email or verify mailbox ownership.
 - Use synthetic data and sandbox credentials only. The local evidence routes fail closed without a scanner and are not a production integration contract.
 
 For implementation details, see [`backend/config/urls.py`](https://github.com/Tridim-Technologies/tridim-business/blob/main/backend/config/urls.py) and the [source repository](https://github.com/Tridim-Technologies/tridim-business).
