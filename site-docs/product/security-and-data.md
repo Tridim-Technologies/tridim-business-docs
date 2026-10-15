@@ -6,6 +6,7 @@ The current product is an internal alpha. It is intended for development and con
 
 - Business records are organized by organization and access depends on membership and role.
 - Changes to selected operational records have history records.
+- Successful platform-superuser list and record-detail reads in the support-scoped Django Admin create access-metadata audit events. Record-detail events include the record's organization; list events do not claim a single organization. The event records actor, time, model, access type, and record identifier without copying the business record contents. This covers tenant models using that scoped admin only; it is not a log of every admin action or direct database access.
 - Expense claims accept synthetic information only. A disabled-by-default local development path stores generated test receipts privately and scans them before use; it is not approved for real evidence. Production storage, parser isolation, retention, deletion, and backup controls remain open.
 - Payment-provider credentials are intended for server-side configuration. The M-Pesa integration is sandbox-only.
 
