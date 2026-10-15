@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import matter from "gray-matter";
+import { load as loadYaml } from "js-yaml";
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
@@ -16,6 +16,19 @@ type ParsedDocument = DocumentInfo & {
   text: string;
   metadata: Record<string, unknown>;
 };
+
+function parseFrontMatter(source: string) {
+  const normalized = source.replace(/^\uFEFF/, "");
+  const match = normalized.match(/^---\s*\r?\n([\s\S]*?)\r?\n---\s*(?:\r?\n|$)([\s\S]*)$/);
+  if (!match) return { data: {}, content: normalized };
+
+  const data = loadYaml(match[1]);
+  if (data !== undefined && (typeof data !== "object" || data === null || Array.isArray(data))) {
+    throw new Error("Markdown front matter must be a YAML mapping.");
+  }
+
+  return { data: (data ?? {}) as Record<string, unknown>, content: match[2] };
+}
 
 function routeForMarkdownLink(sourceSlug: string, href: string) {
   if (/^(?:[a-z]+:|\/\/|mailto:|#)/i.test(href)) return href;
@@ -37,7 +50,7 @@ export async function getDocument(slug: string): Promise<ParsedDocument | null> 
   if (!metadata) return null;
 
   const source = await fs.readFile(path.join(contentRoot, `${slug}.md`), "utf8");
-  const parsed = matter(source);
+  const parsed = parseFrontMatter(source);
   const rendered = await remark().use(remarkGfm).use(remarkHtml).process(parsed.content);
   const html = rewriteMarkdownLinks(String(rendered), slug);
   const text = parsed.content.replace(/<[^>]*>/g, " ").replace(/[`*_#>[\]|-]/g, " ").replace(/\s+/g, " ").trim();
@@ -54,7 +67,7 @@ export async function getSearchDocuments() {
 
 export async function getHomeDocument() {
   const source = await fs.readFile(path.join(contentRoot, "index.md"), "utf8");
-  const parsed = matter(source);
+  const parsed = parseFrontMatter(source);
   const rendered = await remark().use(remarkGfm).use(remarkHtml).process(parsed.content);
   const html = rewriteMarkdownLinks(String(rendered), "index");
   return { html, metadata: parsed.data as Record<string, unknown> };
