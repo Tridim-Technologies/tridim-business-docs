@@ -36,6 +36,8 @@ Route details are based on the current application source. Use the linked reposi
 | Expense claims | `GET`, `POST` | `/api/organizations/{organization_id}/expense-claims/` | List or submit synthetic expense claims |
 | Expense claims | `GET`, `PATCH` | `/api/organizations/{organization_id}/expense-claims/{claim_id}/` | Read or update a claim while allowed by its state |
 | Expense claims | `POST` | `/api/organizations/{organization_id}/expense-claims/{claim_id}/transition/` | Submit or review a claim transition |
+| Expense evidence | `GET`, `POST` | `/api/organizations/{organization_id}/expense-claims/{claim_id}/evidence/` | List evidence or upload a multipart file; upload is disabled unless local synthetic-development settings and scanning are configured |
+| Expense evidence | `GET`, `DELETE` | `/api/organizations/{organization_id}/expense-claims/{claim_id}/evidence/{evidence_id}/` | Download accepted evidence as an attachment or remove it from an editable claim version |
 | Invoices | `GET` | `/api/organizations/{organization_id}/invoices/` | List invoices |
 | Invoices | `POST` | `/api/organizations/{organization_id}/jobs/{job_id}/invoice/` | Issue an invoice for a job |
 | Invoices | `POST` | `/api/organizations/{organization_id}/invoices/{invoice_id}/void/` | Void an invoice through the controlled correction path |
@@ -56,7 +58,8 @@ Route details are based on the current application source. Use the linked reposi
 - The web app uses a Django session cookie. Obtain a CSRF token from `/api/csrf/` before unsafe session-authenticated requests.
 - Organization routes require membership in the `{organization_id}` tenant. Domain operations also check the caller's role.
 - JSON is used for request and response bodies unless the route returns a CSV export or a plain-text health response.
+- Evidence uploads use `multipart/form-data`, the session cookie, and a CSRF token. Let the browser set the multipart `Content-Type` boundary. Evidence downloads are per-request authorized; finance metadata access does not grant receipt access.
 - The Daraja callback is a provider endpoint. It is not an alternate login method and does not create a finance receipt.
-- Use synthetic data and sandbox credentials only. Do not use these routes as a production integration contract.
+- Use synthetic data and sandbox credentials only. The local evidence routes fail closed without a scanner and are not a production integration contract.
 
 For implementation details, see [`backend/config/urls.py`](https://github.com/Tridim-Technologies/tridim-business/blob/main/backend/config/urls.py) and the [source repository](https://github.com/Tridim-Technologies/tridim-business).

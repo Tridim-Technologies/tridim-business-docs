@@ -6,13 +6,14 @@ This roadmap covers the public, open-source Tridim Business platform. It reflect
 
 ## Current baseline
 
-The platform has an organization-scoped foundation and a connected workflow for customers, quotations, jobs, delivery, time, synthetic expense claims and finance. Finance supports invoices, manually recorded receipts, allocations, reversals and exports. The first employee directory increment adds work-only profiles linked to existing organization memberships. Daraja M-Pesa Express is available for sandbox attempts only; it does not settle payments or create finance receipts automatically.
+The platform has an organization-scoped foundation and a connected workflow for customers, quotations, jobs, delivery, time, synthetic expense claims and finance. Finance supports invoices, manually recorded receipts, allocations, reversals and exports. The employee directory provides work-only profiles linked to organization memberships. Expense evidence has a gated, local synthetic-development path; it is not ready for real files. Daraja M-Pesa Express is available for sandbox attempts only; it does not settle payments or create finance receipts automatically.
 
 ## Milestones
 
 | Milestone | Focus | Current state |
 | --- | --- | --- |
 | Core business workflow | Customers, quotations, job delivery, time and synthetic claims | Implemented in the internal alpha; continue improving usability and coverage |
+| Expense evidence | Private local synthetic upload, scanning, and claim-version access | Gated for local development only; production storage, isolation, retention, and support controls remain open |
 | Core HR directory | Work profiles linked to organization membership | In progress; no payroll, leave management, or employee invitations |
 | Finance foundation | Invoices, manual receipts, allocation, reversals and exports | Implemented for synthetic workflows; this is not a full accounting ledger |
 | Sandbox payment verification | Callback handling, query reconciliation and accurate pending states | In progress; confirm final simulator responses and preserve manual finance controls |
@@ -21,7 +22,7 @@ The platform has an organization-scoped foundation and a connected workflow for 
 
 ## Next priority
 
-Complete the employee directory increment, then continue the sandbox handset follow-up in [issue #35](https://github.com/Tridim-Technologies/tridim-business/issues/35) when the operator is ready. The previous handset prompt was cancelled, so it confirmed callback delivery and cancellation handling but did not verify a successful payment result or receipt allocation. A later test should use only sandbox credentials, synthetic records and a test flow explicitly initiated by the operator.
+Complete and review the gated expense-evidence increment in [issue #61](https://github.com/Tridim-Technologies/tridim-business/issues/61). Keep it limited to generated synthetic files while local storage and scanning are used. The uncancelled sandbox handset follow-up remains deferred in [issue #35](https://github.com/Tridim-Technologies/tridim-business/issues/35); it should use only sandbox credentials, synthetic records, and a test flow explicitly initiated by the operator.
 
 ## Later candidates
 
