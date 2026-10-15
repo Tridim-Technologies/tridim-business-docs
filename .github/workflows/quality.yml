@@ -19,11 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: astral-sh/setup-uv@v6
+      - uses: actions/setup-node@v4
         with:
-          enable-cache: true
-      - uses: actions/setup-python@v7
-        with:
-          python-version: "3.12"
-      - run: uv sync --locked
-      - run: uv run mkdocs build --strict
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: NEXT_PUBLIC_BASE_PATH=/tridim-business-docs npm run build
