@@ -24,7 +24,7 @@ The local synthetic PostgreSQL backup/restore rehearsal has passed. The internal
 
 ## Next priority
 
-Continue internal alpha readiness next. The local synthetic backup/restore path and planning targets are documented; review remaining access/data safeguards, monitoring and incident instructions, and record unresolved owners. Hosted deployment, real business data, and live payments remain deferred. The uncancelled Daraja sandbox handset follow-up remains deferred in [core issue #35](https://github.com/Tridim-Technologies/tridim-business/issues/35) until explicitly scheduled.
+Continue internal alpha readiness using synthetic data. The current review covers tenant and role checks, scoped support access, local synthetic evidence handling, recovery instructions, and incident guidance. Remaining gates include privileged-access review, named operational responsibilities and incident contact paths, correct cleanup scheduling in a future environment, and production evidence lifecycle and recovery safeguards. Hosted deployment, real business data, and live payments remain deferred. The uncancelled Daraja sandbox handset follow-up remains deferred in [core issue #35](https://github.com/Tridim-Technologies/tridim-business/issues/35) until explicitly scheduled.
 
 ## Later candidates
 
