@@ -4,7 +4,7 @@ The employee directory is a limited internal-alpha feature for work identity. It
 
 ## Profiles and organization access
 
-Each profile belongs to one existing organization membership. Adding a profile does not create a login, invite a user, or change the member's role. Managers see the account username when selecting an existing member; employees see only the work profile. Profile fields are limited to:
+Each profile belongs to one existing organization membership. Adding a profile does not create a login or change the member's role. Owners and admins can invite a person separately; employees see only the work profile. Profile fields are limited to:
 
 - Display name
 - Job title
@@ -25,7 +25,9 @@ Every request is scoped to the organization in the route. A profile cannot grant
 
 ## Current limits
 
-- The directory does not manage invitations or organization membership roles.
+- Owners and admins can create an invitation link with an allowed role; only owners can invite admins, and nobody can invite an owner. Pending invitations can be revoked.
+- Links are single-use and expire after seven days. Email is not sent by the app: managers copy and share the link directly. Acceptance does not verify email ownership.
+- Invitees can create an account or sign in with an existing account whose email matches the invitation. Acceptance adds membership only to the invited organization.
 - Members can submit and track their own leave requests. Owners, admins, and operations managers can review requests from other members in their organization. A requester can cancel a pending request; rejection requires a reason, decisions are recorded, and managers cannot review their own request.
 - Requests use inclusive dates, one of four categories (annual, personal, parental, or other), and an optional short note. Past starts, reversed dates, long ranges, and overlaps with pending or approved requests are blocked.
 - Keep request notes brief and do not include medical details or other sensitive information. Leave balances, accrual, paid/unpaid entitlements, public holidays, statutory rules, notifications, calendar integrations, onboarding checklists, and payroll are not included.

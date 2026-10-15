@@ -23,6 +23,8 @@ Use these guides to understand the product and the current implementation. Publi
 - Jobs linked to accepted quotations, with assignments, delivery notes, and status history.
 - Staff time submission and review, plus synthetic expense claims.
 - An employee work directory with organization-scoped profiles and manager-controlled updates.
+- Role-bounded organization invitations with secure signup or existing-account acceptance.
+- Basic leave requests with auditable manager decisions.
 - Invoicing, manual payment recording and allocation, reversals, and finance exports.
 - A sandbox-only M-Pesa Express flow for synthetic data. A sandbox attempt is not a finance receipt.
 
