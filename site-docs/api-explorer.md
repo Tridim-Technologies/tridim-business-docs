@@ -4,12 +4,6 @@ This page is a searchable route catalog for the current application API. The rou
 
 Route details are based on the current application source. Use the linked repository for implementation details. All organization-scoped routes require a signed-in user with membership in the organization, and permissions vary by role.
 
-<label class="api-search-label" for="api-route-search">Filter routes</label>
-<input id="api-route-search" class="api-route-search" type="search" placeholder="Search paths, methods, or resources" aria-describedby="api-route-count" />
-<p id="api-route-count" class="api-route-count" aria-live="polite">Showing all route groups.</p>
-
-<div class="api-table-wrap" markdown>
-
 | Resource | Method | Route | Purpose |
 | --- | --- | --- | --- |
 | Health | `GET` | `/health/live/` | Process liveness |
@@ -50,8 +44,6 @@ Route details are based on the current application source. Use the linked reposi
 | Daraja sandbox | `GET` | `/api/organizations/{organization_id}/daraja/sandbox-attempts/{attempt_id}/` | Read a sandbox attempt |
 | Daraja sandbox | `POST` | `/api/organizations/{organization_id}/daraja/sandbox-attempts/{attempt_id}/reconcile/` | Retry sandbox status reconciliation |
 | Daraja callback | `POST` | `/api/payments/daraja/sandbox/stk/callback/` | Receive a provider sandbox callback; not a user-facing route |
-
-</div>
 
 ## Authentication and request handling
 

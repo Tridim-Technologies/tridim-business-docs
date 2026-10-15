@@ -1,9 +1,0 @@
-[project]
-name = "tridim-business-docs"
-version = "0.1.0"
-description = "Public product documentation for Tridim Business."
-requires-python = ">=3.12"
-dependencies = ["mkdocs-material==9.7.7"]
-
-[tool.uv]
-package = false
