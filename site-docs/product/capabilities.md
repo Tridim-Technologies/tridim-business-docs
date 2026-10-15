@@ -21,7 +21,9 @@ Quotation pricing and taxes are not calculated by the current product.
 - Maintain organization-scoped employee work profiles with a display name, job title, department, and active status.
 - Employees can view active directory profiles. Owner, admin, and operations roles can create and update profiles, including restoring inactive profiles.
 - Profiles use existing organization membership and do not create accounts or change access roles.
-- The directory does not collect personal contact details, salary, payroll, government identifiers, or home addresses. Leave requests and employee invitations are not included.
+- The directory does not collect personal contact details, salary, payroll, government identifiers, or home addresses.
+- Organization members can submit and track their own leave requests; owner, admin, and operations roles can review other members' requests. Decisions and reasons are retained as request history, and the requester can cancel a pending request.
+- Leave categories are labels only. Balances, accrual, entitlements, holidays, statutory policies, payroll, notifications, and calendar integrations are not included.
 
 ## Expense claims
 

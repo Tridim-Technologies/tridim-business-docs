@@ -2,7 +2,7 @@
 
 ## Internal alpha
 
-Tridim Business is in active development as an internal alpha. The core workflow includes customer and quotation records, linked jobs, time review, synthetic expense claims, an employee work directory, invoicing, manual payment recording, finance exports, and a sandbox-only payment attempt flow.
+Tridim Business is in active development as an internal alpha. The core workflow includes customer and quotation records, linked jobs, time review, synthetic expense claims, an employee work directory with basic leave requests and manager decisions, invoicing, manual payment recording, finance exports, and a sandbox-only payment attempt flow.
 
 ## Availability
 
@@ -11,5 +11,6 @@ Tridim Business is in active development as an internal alpha. The core workflow
 - Use synthetic data only.
 - Live payment settlement, production receipt storage, tax calculation, payroll, and a complete accounting ledger are not available. A local synthetic receipt-upload path is disabled by default and is not approved for real data.
 - Compliance and market requirements have not been validated for any jurisdiction.
+- Leave requests do not calculate balances, paid/unpaid entitlements, public holidays, statutory policy, or payroll.
 
 The product is being designed with the intention to support businesses across markets. That is a direction, not a statement of present availability or verified suitability in any country.

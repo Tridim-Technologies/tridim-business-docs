@@ -26,7 +26,9 @@ Every request is scoped to the organization in the route. A profile cannot grant
 ## Current limits
 
 - The directory does not manage invitations or organization membership roles.
-- Leave requests, leave balances, onboarding checklists, payroll, and statutory records are not included.
+- Members can submit and track their own leave requests. Owners, admins, and operations managers can review requests from other members in their organization. A requester can cancel a pending request; rejection requires a reason, decisions are recorded, and managers cannot review their own request.
+- Requests use inclusive dates, one of four categories (annual, personal, parental, or other), and an optional short note. Past starts, reversed dates, long ranges, and overlaps with pending or approved requests are blocked.
+- Keep request notes brief and do not include medical details or other sensitive information. Leave balances, accrual, paid/unpaid entitlements, public holidays, statutory rules, notifications, calendar integrations, onboarding checklists, and payroll are not included.
 - Use synthetic data only while the application remains an internal alpha. Do not treat this directory as a verified employee record system for production or compliance purposes.
 
 See the [current capabilities](../product/capabilities.md), [public roadmap](../roadmap.md), and [API explorer](../api-explorer.md) for current implementation status and route details.

@@ -13,6 +13,9 @@ Route details are based on the current application source. Use the linked reposi
 | Organizations | `GET` | `/api/organizations/` | List organizations available to the signed-in user |
 | Employees | `GET`, `POST` | `/api/organizations/{organization_id}/employees/` | Read the active employee directory or create a work profile (owner/admin/operations); managers may request `?status=all` to include inactive profiles |
 | Employees | `PATCH` | `/api/organizations/{organization_id}/employees/{profile_id}/` | Update a work profile or its active status (owner/admin/operations only) |
+| Leave requests | `GET`, `POST` | `/api/organizations/{organization_id}/leave-requests/` | List the caller's requests or organization requests for owner/admin/operations; submit a request for the signed-in member |
+| Leave requests | `GET` | `/api/organizations/{organization_id}/leave-requests/{request_id}/` | Read a request within the caller's organization and role scope |
+| Leave requests | `POST` | `/api/organizations/{organization_id}/leave-requests/{request_id}/transition/` | Approve or reject another member's pending request (owner/admin/operations), or cancel the caller's pending request |
 | Customers | `GET`, `POST` | `/api/organizations/{organization_id}/customers/` | List, filter, search, or create customers |
 | Customers | `PATCH`, `POST` | `/api/organizations/{organization_id}/customers/{customer_id}/` | Update a customer |
 | Quotations | `GET`, `POST` | `/api/organizations/{organization_id}/quotations/` | List or create quotations |
