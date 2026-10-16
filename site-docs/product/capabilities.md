@@ -23,7 +23,7 @@ Quotation pricing and taxes are not calculated by the current product.
 - Profiles use existing organization membership and do not create accounts or change access roles.
 - The directory does not collect personal contact details, salary, payroll, government identifiers, or home addresses.
 - Owners and admins can invite people to an organization with a role allowed by their authority. Invitation links are single-use, expire after seven days, and can be revoked; no invitation can grant owner access.
-- The app does not send invitation email or verify mailbox ownership. Managers share the one-time link directly; invitees create an account or sign in with an account whose email matches the invitation.
+- Optional invitation email uses Django's configured SMTP backend. If it is disabled or unavailable, managers receive a one-time link fallback. Successful SMTP handoff hides the raw token from the manager response but does not confirm inbox delivery. Email submission and invitation acceptance do not verify mailbox ownership.
 - Organization members can submit and track their own leave requests; owner, admin, and operations roles can review other members' requests. Decisions and reasons are retained as request history, and the requester can cancel a pending request.
 - Leave categories are labels only. Balances, accrual, entitlements, holidays, statutory policies, payroll, notifications, and calendar integrations are not included.
 

@@ -13,7 +13,7 @@ Route details are based on the current application source. Use the linked reposi
 | Organizations | `GET` | `/api/organizations/` | List organizations available to the signed-in user |
 | Invitations | `POST` | `/api/invitations/inspect/` | Inspect a valid one-time invitation using a token in the JSON request body |
 | Invitations | `POST` | `/api/invitations/accept/` | Accept an invitation with a signed-in matching account, or create an account and accept |
-| Invitations | `GET`, `POST` | `/api/organizations/{organization_id}/invitations/` | List recent invitations or create an invitation link (owner/admin; role limits apply) |
+| Invitations | `GET`, `POST` | `/api/organizations/{organization_id}/invitations/` | List recent invitations or create an invitation (owner/admin; role limits apply). Successful SMTP handoff returns `email_sent: true` without the token; otherwise a one-time fallback token is returned. SMTP acceptance does not confirm inbox delivery. |
 | Invitations | `POST` | `/api/organizations/{organization_id}/invitations/{invitation_id}/revoke/` | Revoke a pending invitation (owner/admin) |
 | Employees | `GET`, `POST` | `/api/organizations/{organization_id}/employees/` | Read the active employee directory or create a work profile (owner/admin/operations); managers may request `?status=all` to include inactive profiles |
 | Employees | `PATCH` | `/api/organizations/{organization_id}/employees/{profile_id}/` | Update a work profile or its active status (owner/admin/operations only) |

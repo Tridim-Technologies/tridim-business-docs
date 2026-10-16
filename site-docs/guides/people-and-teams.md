@@ -25,8 +25,11 @@ Every request is scoped to the organization in the route. A profile cannot grant
 
 ## Current limits
 
-- Owners and admins can create an invitation link with an allowed role; only owners can invite admins, and nobody can invite an owner. Pending invitations can be revoked.
-- Links are single-use and expire after seven days. Email is not sent by the app: managers copy and share the link directly. Acceptance does not verify email ownership.
+- Owners and admins can create an invitation with an allowed role; only owners can invite admins, and nobody can invite an owner. Pending invitations can be revoked.
+- When optional SMTP email is configured, the app submits the single-use link to the invited address and hides the raw token from the manager response. The link expires after seven days; SMTP acceptance does not confirm inbox delivery.
+- If email delivery is disabled or unavailable, the manager receives a one-time link to share directly. The raw link is not shown again after creation.
+- Email submission and link acceptance do not verify mailbox ownership. Do not treat an invited address as verified.
+- SMTP acceptance does not confirm that a message reached an inbox. If the recipient cannot find it, revoke the invitation and create a replacement; the new link can be shared manually if SMTP submission is unavailable.
 - Invitees can create an account or sign in with an existing account whose email matches the invitation. Acceptance adds membership only to the invited organization.
 - Members can submit and track their own leave requests. Owners, admins, and operations managers can review requests from other members in their organization. A requester can cancel a pending request; rejection requires a reason, decisions are recorded, and managers cannot review their own request.
 - Requests use inclusive dates, one of four categories (annual, personal, parental, or other), and an optional short note. Past starts, reversed dates, long ranges, and overlaps with pending or approved requests are blocked.

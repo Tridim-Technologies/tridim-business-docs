@@ -12,6 +12,6 @@ Tridim Business is in active development as an internal alpha. The core workflow
 - Live payment settlement, production receipt storage, tax calculation, payroll, and a complete accounting ledger are not available. A local synthetic receipt-upload path is disabled by default and is not approved for real data.
 - Compliance and market requirements have not been validated for any jurisdiction.
 - Leave requests do not calculate balances, paid/unpaid entitlements, public holidays, statutory policy, or payroll.
-- Invitation email delivery and mailbox ownership verification are not configured; managers share links manually.
+- Invitation email submission is optional and requires SMTP configuration; manual link sharing remains the fallback. SMTP handoff does not confirm inbox delivery or verify mailbox ownership.
 
 The product is being designed with the intention to support businesses across markets. That is a direction, not a statement of present availability or verified suitability in any country.
