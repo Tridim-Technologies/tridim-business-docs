@@ -33,6 +33,14 @@ Quotation pricing and taxes are not calculated by the current product.
 - Reviewers can return, waive missing evidence, approve, or reject a claim; accepted evidence can satisfy the receipt requirement for its claim version.
 - A disabled-by-default local development path supports generated synthetic JPEG, PNG, and PDF receipts after validation and malware scanning. It must not be used with real expense data.
 
+## Inventory
+
+- Maintain an organization-scoped product catalog and stock locations.
+- Record synthetic stock receipts, issues, adjustments, and transfers with reasons and actor history.
+- View quantities by product and location; on-hand is derived from immutable movement records.
+- Negative stock is rejected, and retried movement requests are idempotent.
+- Purchasing, reservations, unit conversion, costing, valuation, tax, and accounting integration are not included.
+
 ## Invoicing and payments
 
 - Create invoices from completed jobs.
