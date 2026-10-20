@@ -10,6 +10,7 @@ Tridim Business is being built around linked operational records, so teams can f
 4. **Record work.** Assigned members can submit time entries for review.
 5. **Plan stock replenishment.** Authorized managers can create supplier drafts, issue them, and receive partial or complete deliveries into a stock location. Supplier receipts add quantities through linked inventory movement records.
 6. **Track stock.** Authorized inventory managers can maintain products and locations and record reasoned receipts, issues, adjustments, and transfers. Balances are quantity-only and do not create accounting entries.
+   Job managers can also issue stock against a job. Linked immutable movements reduce on-hand quantities and appear in the job and inventory histories.
 7. **Review expenses.** Members can submit synthetic expense claims linked to a job. Reviewers can request changes, waive missing evidence, approve, or reject. Generated receipt files can be used only through the disabled-by-default local development path; real expense data is not supported.
 8. **Invoice and record collection.** Finance members can create an invoice from completed work, record manual receipts, allocate them to invoices, and reverse allocations or receipts.
 9. **Review finance exports.** Finance members can export available invoice and payment data.
