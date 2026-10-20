@@ -45,6 +45,8 @@ The initial limits are 10 MiB per file, five files per claim version, and 25 MiB
 
 This path is disabled outside local debug mode and is not a production storage or scanning service. A clean local scan does not authorize real evidence. Production parser isolation, object storage and scanner selection, backup/deletion behavior, customer-specific retention, monitoring, support ownership, and incident response remain unresolved.
 
+The separate local deletion journal can replay synthetic deletes after some older local restores, but it is not an independent production recovery service. See the [expense-evidence recovery guide](evidence-recovery.md) for the current boundary and production gate.
+
 ## Expected result
 
 Time entries and expense claims appear on the associated job or in the expense register with their status and review history. The records make submitted work and review decisions visible to the organization.

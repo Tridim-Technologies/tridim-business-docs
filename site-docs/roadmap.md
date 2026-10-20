@@ -15,7 +15,7 @@ The local synthetic PostgreSQL backup/restore rehearsal has passed. The internal
 | Milestone | Focus | Current state |
 | --- | --- | --- |
 | Core business workflow | Customers, quotations, job delivery, time and synthetic claims | Implemented in the internal alpha; continue improving usability and coverage |
-| Expense evidence | Private local synthetic upload, scanning, and claim-version access | Implemented and documented for local synthetic use in [core issue #61](https://github.com/Tridim-Technologies/tridim-business/issues/61); real files remain out of scope until production storage, isolation, retention, and support controls are addressed |
+| Expense evidence | Private local synthetic upload, scanning, claim-version access, and deletion replay | Local synthetic deletion journal/replay is implemented in [core issue #99](https://github.com/Tridim-Technologies/tridim-business/issues/99); real files remain out of scope until independent production recovery, storage-specific purge, isolation, retention, and support controls are addressed |
 | Core HR | Work profiles, basic leave requests, role-bounded organization invitations | Implemented in the internal alpha; no payroll or leave-entitlement calculations |
 | Finance foundation | Invoices, manual receipts, allocation, reversals and exports | Implemented for synthetic workflows; this is not a full accounting ledger |
 | Sandbox payment verification | Callback handling, query reconciliation and accurate pending states | In progress; confirm final simulator responses and preserve manual finance controls |
@@ -24,7 +24,7 @@ The local synthetic PostgreSQL backup/restore rehearsal has passed. The internal
 
 ## Next priority
 
-Continue internal alpha readiness using synthetic data. The current review covers tenant and role checks, scoped support access, local synthetic evidence handling, recovery instructions, and incident guidance. Remaining gates include privileged-access review, named operational responsibilities and incident contact paths, correct cleanup scheduling in a future environment, and production evidence lifecycle and recovery safeguards. Hosted deployment, real business data, and live payments remain deferred. The uncancelled Daraja sandbox handset follow-up remains deferred in [core issue #35](https://github.com/Tridim-Technologies/tridim-business/issues/35) until explicitly scheduled.
+Continue internal alpha readiness using synthetic data. The current review covers tenant and role checks, scoped support access, local synthetic evidence handling, recovery instructions, and incident guidance. The provider-neutral production evidence recovery design is documented in the [core repository](https://github.com/Tridim-Technologies/tridim-business/blob/main/docs/PRODUCTION_EVIDENCE_RECOVERY_DESIGN.md) and summarized in the [evidence recovery guide](guides/evidence-recovery.md); provider, region, retention, and deployment remain undecided. Remaining gates include privileged-access review, named operational responsibilities and incident contact paths, correct cleanup scheduling in a future environment, and a provider-specific evidence lifecycle and restore rehearsal. Hosted deployment, real business data, and live payments remain deferred. The uncancelled Daraja sandbox handset follow-up remains deferred in [core issue #35](https://github.com/Tridim-Technologies/tridim-business/issues/35) until explicitly scheduled.
 
 ## Later candidates
 
