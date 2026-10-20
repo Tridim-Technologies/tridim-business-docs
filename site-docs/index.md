@@ -1,7 +1,7 @@
 ---
 eyebrow: Open-source business operations platform
 heroTitle: Understand the work. Run the business.
-heroDescription: Tridim Business connects customer records, quotations, job delivery, staff time, expenses, inventory, and finance workflows in one platform. The public project is building a dependable foundation for businesses across markets.
+heroDescription: Tridim Business connects customer records, quotations, job delivery, staff time, expenses, supplier orders, inventory, and finance workflows in one platform. The public project is building a dependable foundation for businesses across markets.
 status: Internal alpha
 statusTitle: One guide for builders and operators
 statusDescription: The platform is under active development and is not a hosted customer service. These pages explain what works today, what remains in progress, and how the current application is put together.
@@ -26,6 +26,7 @@ Use these guides to understand the product and the current implementation. Publi
 - Role-bounded organization invitations with secure signup or existing-account acceptance.
 - Basic leave requests with auditable manager decisions.
 - Quantity-only inventory with an organization-scoped product catalog, locations, balances, and stock movement history.
+- Supplier orders with draft/issue/cancel states and partial receiving linked to immutable stock movements.
 - Invoicing, manual payment recording and allocation, reversals, and finance exports.
 - A sandbox-only M-Pesa Express flow for synthetic data. A sandbox attempt is not a finance receipt.
 

@@ -57,6 +57,14 @@ Route details are based on the current application source. Use the linked reposi
 | Inventory locations | `POST` | `/api/organizations/{organization_id}/inventory/locations/` | Create a stock location |
 | Inventory locations | `PATCH` | `/api/organizations/{organization_id}/inventory/locations/{location_id}/` | Update a stock location |
 | Inventory movements | `GET`, `POST` | `/api/organizations/{organization_id}/inventory/movements/` | List or record a stock movement |
+| Purchasing | `GET` | `/api/organizations/{organization_id}/purchasing/` | List suppliers, orders with receipt history, products, and locations |
+| Suppliers | `POST` | `/api/organizations/{organization_id}/purchasing/suppliers/` | Create a supplier (owner/admin/operations) |
+| Suppliers | `PATCH` | `/api/organizations/{organization_id}/purchasing/suppliers/{supplier_id}/` | Update supplier code, name, or active state |
+| Purchase orders | `POST` | `/api/organizations/{organization_id}/purchasing/orders/` | Create a draft supplier order with product quantities |
+| Purchase orders | `PATCH`, `DELETE` | `/api/organizations/{organization_id}/purchasing/orders/{order_id}/` | Edit or delete a draft order |
+| Purchase orders | `POST` | `/api/organizations/{organization_id}/purchasing/orders/{order_id}/issue/` | Issue and freeze a non-empty draft |
+| Purchase orders | `POST` | `/api/organizations/{organization_id}/purchasing/orders/{order_id}/cancel/` | Cancel an issued or partially received order |
+| Purchase receipts | `GET`, `POST` | `/api/organizations/{organization_id}/purchasing/orders/{order_id}/receipts/` | List receipts or receive quantities to an active stock location; receipt posting creates linked immutable inventory movements |
 
 ## Authentication and request handling
 
@@ -67,5 +75,6 @@ Route details are based on the current application source. Use the linked reposi
 - The Daraja callback is a provider endpoint. It is not an alternate login method and does not create a finance receipt.
 - Invitation routes use one-time tokens; the raw token is returned only when a manager creates an invitation. The app does not send invitation email or verify mailbox ownership.
 - Use synthetic data and sandbox credentials only. The local evidence routes fail closed without a scanner and are not a production integration contract.
+- Purchasing quantities use exact decimal strings. Receipt POST requests require a UUID idempotency key; all receipt lines and linked inventory movements are committed together.
 
 For implementation details, see [`backend/config/urls.py`](https://github.com/Tridim-Technologies/tridim-business/blob/main/backend/config/urls.py) and the [source repository](https://github.com/Tridim-Technologies/tridim-business).
