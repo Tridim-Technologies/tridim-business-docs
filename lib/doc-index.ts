@@ -13,6 +13,7 @@ export const documents: DocumentInfo[] = [
   { slug: "product/security-and-data", title: "Security and data", description: "Current safeguards, data boundaries, and known limitations." },
   { slug: "guides/sales-and-delivery", title: "Sales and delivery", description: "Customer, quotation, and job workflows." },
   { slug: "guides/time-and-expenses", title: "Time and expenses", description: "Staff time, expense claims, and evidence handling." },
+  { slug: "guides/evidence-recovery", title: "Evidence recovery", description: "Synthetic deletion replay and production recovery requirements." },
   { slug: "guides/people-and-teams", title: "People and teams", description: "Organization membership, work profiles, and role boundaries." },
   { slug: "guides/finance-operations", title: "Finance operations", description: "Invoices, receipts, allocations, reversals, and sandbox attempts." },
   { slug: "status", title: "Current status", description: "What is implemented and what remains in progress." },
