@@ -51,6 +51,12 @@ Route details are based on the current application source. Use the linked reposi
 | Daraja sandbox | `GET` | `/api/organizations/{organization_id}/daraja/sandbox-attempts/{attempt_id}/` | Read a sandbox attempt |
 | Daraja sandbox | `POST` | `/api/organizations/{organization_id}/daraja/sandbox-attempts/{attempt_id}/reconcile/` | Retry sandbox status reconciliation |
 | Daraja callback | `POST` | `/api/payments/daraja/sandbox/stk/callback/` | Receive a provider sandbox callback; not a user-facing route |
+| Inventory | `GET` | `/api/organizations/{organization_id}/inventory/` | List products with location balances, locations, and recent movements |
+| Inventory products | `POST` | `/api/organizations/{organization_id}/inventory/products/` | Create a product |
+| Inventory products | `PATCH` | `/api/organizations/{organization_id}/inventory/products/{product_id}/` | Update product catalog fields |
+| Inventory locations | `POST` | `/api/organizations/{organization_id}/inventory/locations/` | Create a stock location |
+| Inventory locations | `PATCH` | `/api/organizations/{organization_id}/inventory/locations/{location_id}/` | Update a stock location |
+| Inventory movements | `GET`, `POST` | `/api/organizations/{organization_id}/inventory/movements/` | List or record a stock movement |
 
 ## Authentication and request handling
 
