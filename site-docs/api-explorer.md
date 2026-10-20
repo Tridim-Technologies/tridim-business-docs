@@ -28,6 +28,7 @@ Route details are based on the current application source. Use the linked reposi
 | Quotations | `POST` | `/api/organizations/{organization_id}/quotations/{quotation_id}/revise/` | Create a quotation revision |
 | Jobs | `GET` | `/api/organizations/{organization_id}/jobs/` | List jobs |
 | Jobs | `GET`, `PATCH` | `/api/organizations/{organization_id}/jobs/{job_id}/` | Read or update a job |
+| Jobs | `POST` | `/api/organizations/{organization_id}/jobs/{job_id}/material-issues/` | Record one or more quantity-only inventory issue lines against a job (owner/admin/operations) |
 | Jobs | `POST` | `/api/organizations/{organization_id}/jobs/{job_id}/assignments/` | Assign a team member |
 | Jobs | `POST` | `/api/organizations/{organization_id}/jobs/{job_id}/assignments/{assignment_id}/remove/` | Remove an assignment |
 | Jobs | `POST` | `/api/organizations/{organization_id}/jobs/{job_id}/notes/` | Add a delivery note |
@@ -57,6 +58,7 @@ Route details are based on the current application source. Use the linked reposi
 | Inventory locations | `POST` | `/api/organizations/{organization_id}/inventory/locations/` | Create a stock location |
 | Inventory locations | `PATCH` | `/api/organizations/{organization_id}/inventory/locations/{location_id}/` | Update a stock location |
 | Inventory movements | `GET`, `POST` | `/api/organizations/{organization_id}/inventory/movements/` | List or record a stock movement |
+| Jobs | `POST` | `/api/organizations/{organization_id}/jobs/{job_id}/material-issues/` | Record quantity-only inventory issue lines against a job (owner/admin/operations) |
 | Purchasing | `GET` | `/api/organizations/{organization_id}/purchasing/` | List suppliers, orders with receipt history, products, and locations |
 | Suppliers | `POST` | `/api/organizations/{organization_id}/purchasing/suppliers/` | Create a supplier (owner/admin/operations) |
 | Suppliers | `PATCH` | `/api/organizations/{organization_id}/purchasing/suppliers/{supplier_id}/` | Update supplier code, name, or active state |

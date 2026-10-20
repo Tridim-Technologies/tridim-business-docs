@@ -34,10 +34,11 @@ The app records quotation status changes. It does not calculate tax or display a
 3. An owner, admin, or operations member can assign organization members, set a due date, and move the job through its available statuses.
 4. Add delivery updates in **Delivery notes**. Assigned employees can add notes to their jobs too.
 5. The assigned team records time from the job card. When work is complete, a job manager can set its status to **Completed**.
+6. An owner, admin, or operations member can record inventory quantities used for the job. Choose active products and locations, enter quantities and a reason, then submit. The linked stock issue movements reduce on-hand quantities and appear in both histories.
 
 ## Expected result
 
-The quotation history shows its status and revisions. Once accepted, the quotation links to a job where the team can record assignments, delivery status, notes, and time.
+The quotation history shows its status and revisions. Once accepted, the quotation links to a job where the team can record assignments, delivery status, notes, time, and quantity-only material usage.
 
 ## Current limits
 

@@ -21,6 +21,12 @@ Every movement records the product, quantity, actor, time, reason, and a request
 
 On-hand quantities are derived from the movement history. Movement records cannot be edited or deleted through the application. Corrections are recorded as new movements. Locations with stock on hand cannot be deactivated.
 
+## Issue materials to a job
+
+On a job card, owners, administrators, and operations members can record one or more products and quantities used from active stock locations. The user supplies a reason. The request checks available quantity and commits the job issue and linked inventory movements together. A retry with the same organization-scoped idempotency key and payload returns the original issue; reusing a key with different content is rejected. The job history shows products, locations, quantities, actor, time, and reason, and inventory movement history links each issue to its job.
+
+This records material consumption and reduces stock immediately. It does not reserve stock or allocate material cost.
+
 ## API routes
 
 | Method | Route | Purpose |
@@ -31,8 +37,11 @@ On-hand quantities are derived from the movement history. Movement records canno
 | `POST` | `/api/organizations/{organization_id}/inventory/locations/` | Create a location |
 | `PATCH` | `/api/organizations/{organization_id}/inventory/locations/{location_id}/` | Update a location; deactivation requires zero stock |
 | `GET`, `POST` | `/api/organizations/{organization_id}/inventory/movements/` | List recent movements or record one |
+| `POST` | `/api/organizations/{organization_id}/jobs/{job_id}/material-issues/` | Record one or more quantity-only stock issue lines against a job |
 
 Movement requests use `product_id`, `kind`, `location_id`, `quantity`, `reason`, and a UUID `idempotency_key`. A transfer also uses `destination_id`. An adjustment uses `direction` set to `increase` or `decrease`. Send quantity as a decimal string for exact validation.
+
+Job material issue requests use `idempotency_key`, `reason`, and a `lines` array containing `product_id`, `location_id`, and decimal-string `quantity` values. A product and location pair can appear once per request.
 
 ## Current limits
 

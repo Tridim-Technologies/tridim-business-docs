@@ -40,8 +40,10 @@ Quotation pricing and taxes are not calculated by the current product.
 - View quantities by product and location; on-hand is derived from immutable movement records.
 - Negative stock is rejected, and retried movement requests are idempotent.
 - Supplier orders support editable drafts, issuing, cancellation, and partial/full receiving linked to immutable stock movements.
+- Owners, administrators, and operations members can issue one or more stock items against a job; the job history records actor, time, reason, location, product, and quantity, while linked movements reduce stock.
 - Receipt quantities cannot exceed the open ordered quantity, and identical request retries do not duplicate stock.
 - Reservations, unit conversion, costing, valuation, supplier pricing, tax, and accounting integration are not included.
+- Material use is not valued or linked to invoice lines or accounting entries.
 
 ## Invoicing and payments
 
