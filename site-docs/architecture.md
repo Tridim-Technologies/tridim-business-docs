@@ -5,7 +5,7 @@ Tridim Business is currently a web application built as a Django backend and Rea
 <figure class="architecture-map" aria-labelledby="architecture-caption">
 <svg viewBox="0 0 1000 520" role="img" aria-labelledby="architecture-title architecture-description" xmlns="http://www.w3.org/2000/svg">
   <title id="architecture-title">Tridim Business application architecture</title>
-  <desc id="architecture-description">A browser uses the React and TypeScript interface, which calls same-origin Django HTTP routes. Django contains accounts, customers, quotations and jobs, and invoicing domains. It stores business data in PostgreSQL and connects to the Daraja sandbox for payment attempts and callbacks.</desc>
+  <desc id="architecture-description">A browser uses the React and TypeScript interface, which calls same-origin Django HTTP routes. Django contains accounts, customer, sales, delivery, inventory, supplier purchasing, and finance domains. It stores business data in PostgreSQL and connects to the Daraja sandbox for payment attempts and callbacks.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#3175a8" /></marker>
   </defs>
@@ -52,6 +52,7 @@ Tridim Business is currently a web application built as a Django backend and Rea
 | React and TypeScript | Browser interface for the organization workspace and business workflows |
 | Django | Session authentication, organization and role checks, domain workflows, and HTTP JSON responses |
 | PostgreSQL | Relational persistence for organizations and business records |
+| Inventory and purchasing | Product/location quantities, supplier orders, receipts, and linked inventory movements |
 | Daraja sandbox adapter | Starts and reconciles test payment attempts and accepts provider callbacks; it does not create a finance receipt |
 
 ## Data and access flow

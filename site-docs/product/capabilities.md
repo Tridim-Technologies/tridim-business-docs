@@ -39,7 +39,9 @@ Quotation pricing and taxes are not calculated by the current product.
 - Record synthetic stock receipts, issues, adjustments, and transfers with reasons and actor history.
 - View quantities by product and location; on-hand is derived from immutable movement records.
 - Negative stock is rejected, and retried movement requests are idempotent.
-- Purchasing, reservations, unit conversion, costing, valuation, tax, and accounting integration are not included.
+- Supplier orders support editable drafts, issuing, cancellation, and partial/full receiving linked to immutable stock movements.
+- Receipt quantities cannot exceed the open ordered quantity, and identical request retries do not duplicate stock.
+- Reservations, unit conversion, costing, valuation, supplier pricing, tax, and accounting integration are not included.
 
 ## Invoicing and payments
 

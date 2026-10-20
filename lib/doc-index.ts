@@ -17,5 +17,6 @@ export const documents: DocumentInfo[] = [
   { slug: "guides/people-and-teams", title: "People and teams", description: "Organization membership, work profiles, and role boundaries." },
   { slug: "guides/finance-operations", title: "Finance operations", description: "Invoices, receipts, allocations, reversals, and sandbox attempts." },
   { slug: "guides/inventory", title: "Inventory", description: "Products, locations, stock balances, and auditable movements." },
+  { slug: "guides/purchasing", title: "Purchasing", description: "Supplier orders, partial receiving, and linked stock movements." },
   { slug: "status", title: "Current status", description: "What is implemented and what remains in progress." },
 ];

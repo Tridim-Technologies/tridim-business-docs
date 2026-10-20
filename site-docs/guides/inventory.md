@@ -36,4 +36,4 @@ Movement requests use `product_id`, `kind`, `location_id`, `quantity`, `reason`,
 
 ## Current limits
 
-This is quantity tracking, not inventory accounting. There is no purchasing, supplier receiving, sales order, reservation, bundle, serial/batch tracking, unit conversion, costing, valuation, tax, invoice linkage, or general-ledger posting. The alpha uses synthetic records only and does not imply a hosted service or production readiness.
+Inventory is quantity tracking, not inventory accounting. Supplier orders and partial receiving are available in the separate [purchasing guide](purchasing.md). Sales orders, reservations, bundles, serial/batch tracking, unit conversion, costing, valuation, tax, invoice linkage, and general-ledger posting are not included. The alpha uses synthetic records only and does not imply a hosted service or production readiness.
