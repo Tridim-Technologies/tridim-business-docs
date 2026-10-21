@@ -4,7 +4,7 @@ The internal alpha includes quantity-only stock tracking for synthetic data. Inv
 
 ## Products and locations
 
-Owners, administrators, and operations members can add products and locations and maintain their catalog details. Each product has an organization-unique, case-insensitive SKU, a name, and a base unit. Each location has an organization-unique code and a name. A product's base unit cannot be changed after its first movement, because that would reinterpret earlier quantities.
+Owners, administrators, and operations members can add products and locations and maintain their catalog details. Each product has an organization-unique, case-insensitive SKU, a name, a base unit, and a non-negative reorder point. A `0.000` reorder point disables tracking; a positive value is compared with total on-hand quantity across all locations. Each location has an organization-unique code and a name. A product's base unit cannot be changed after its first movement, because that would reinterpret earlier quantities.
 
 Owners, administrators, operations, sales, and finance members can view inventory. Other roles do not have access. API identifiers are resolved within the selected organization.
 
@@ -19,7 +19,7 @@ Authorized inventory managers can record:
 
 Every movement records the product, quantity, actor, time, reason, and a request idempotency key. Quantities use three decimal places and must be positive. Issues, adjustment decreases, and transfers cannot reduce stock below zero. Repeating a movement request with the same key and payload returns the original movement; reusing its key for different data is rejected.
 
-On-hand quantities are derived from the movement history. Movement records cannot be edited or deleted through the application. Corrections are recorded as new movements. Locations with stock on hand cannot be deactivated.
+On-hand quantities are derived from the movement history. The inventory view shows per-location balances and an organization-wide total. Active products below a positive reorder point appear in the low-stock view and purchasing suggestions. A threshold is informational and does not automatically create or issue a purchase order. Movement records cannot be edited or deleted through the application. Corrections are recorded as new movements. Locations with stock on hand cannot be deactivated.
 
 ## Issue materials to a job
 
