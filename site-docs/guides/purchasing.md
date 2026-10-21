@@ -2,6 +2,12 @@
 
 The open-source alpha supports a quantity-only supplier workflow that connects supplier orders to inventory receipts. It is intended for synthetic data and internal evaluation.
 
+## Review reorder suggestions
+
+Set a positive reorder point on a product in Inventory to include it in low-stock tracking. The threshold uses total on-hand quantity across all organization locations. Purchasing suggestions subtract unreceived quantities on issued and partially received supplier orders from the amount needed to reach the threshold: `max(reorder point - total on hand - outstanding incoming quantity, 0)`. Products remain visible when incoming stock fully covers the gap.
+
+An authorized manager can select positive suggestions to prefill a supplier-order draft. The manager chooses the supplier and can edit or remove the proposed lines before saving. This is a planning aid: it does not create a draft until selected, and never issues or sends an order automatically.
+
 ## Set up suppliers
 
 An organization manager can create a supplier using a unique code and name, then deactivate it when it should no longer be selected for new orders. Order records preserve the supplier code and name as they were when the draft was created. This workflow does not collect supplier contact or payment details.
@@ -33,7 +39,7 @@ Routes are organization-scoped beneath `/api/organizations/{organization_id}`:
 
 | Method | Route | Purpose |
 | --- | --- | --- |
-| `GET` | `/purchasing/` | Read suppliers, orders, receipts, products, and locations |
+| `GET` | `/purchasing/` | Read suppliers, orders, receipts, products, locations, and `reorder_suggestions` |
 | `POST` | `/purchasing/suppliers/` | Create a supplier |
 | `PATCH` | `/purchasing/suppliers/{supplier_id}/` | Update supplier code, name, or active state |
 | `POST` | `/purchasing/orders/` | Create a draft with `supplier_id` and product lines |

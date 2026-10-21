@@ -52,14 +52,14 @@ Route details are based on the current application source. Use the linked reposi
 | Daraja sandbox | `GET` | `/api/organizations/{organization_id}/daraja/sandbox-attempts/{attempt_id}/` | Read a sandbox attempt |
 | Daraja sandbox | `POST` | `/api/organizations/{organization_id}/daraja/sandbox-attempts/{attempt_id}/reconcile/` | Retry sandbox status reconciliation |
 | Daraja callback | `POST` | `/api/payments/daraja/sandbox/stk/callback/` | Receive a provider sandbox callback; not a user-facing route |
-| Inventory | `GET` | `/api/organizations/{organization_id}/inventory/` | List products with location balances, locations, and recent movements |
+| Inventory | `GET` | `/api/organizations/{organization_id}/inventory/` | List products with `reorder_point`, total `on_hand_quantity`, per-location balances, locations, and recent movements |
 | Inventory products | `POST` | `/api/organizations/{organization_id}/inventory/products/` | Create a product |
 | Inventory products | `PATCH` | `/api/organizations/{organization_id}/inventory/products/{product_id}/` | Update product catalog fields |
 | Inventory locations | `POST` | `/api/organizations/{organization_id}/inventory/locations/` | Create a stock location |
 | Inventory locations | `PATCH` | `/api/organizations/{organization_id}/inventory/locations/{location_id}/` | Update a stock location |
 | Inventory movements | `GET`, `POST` | `/api/organizations/{organization_id}/inventory/movements/` | List or record a stock movement |
 | Jobs | `POST` | `/api/organizations/{organization_id}/jobs/{job_id}/material-issues/` | Record quantity-only inventory issue lines against a job (owner/admin/operations) |
-| Purchasing | `GET` | `/api/organizations/{organization_id}/purchasing/` | List suppliers, orders with receipt history, products, and locations |
+| Purchasing | `GET` | `/api/organizations/{organization_id}/purchasing/` | List suppliers, orders with receipt history, products, locations, and `reorder_suggestions` with on-hand, on-order, and suggested quantities |
 | Suppliers | `POST` | `/api/organizations/{organization_id}/purchasing/suppliers/` | Create a supplier (owner/admin/operations) |
 | Suppliers | `PATCH` | `/api/organizations/{organization_id}/purchasing/suppliers/{supplier_id}/` | Update supplier code, name, or active state |
 | Purchase orders | `POST` | `/api/organizations/{organization_id}/purchasing/orders/` | Create a draft supplier order with product quantities |
