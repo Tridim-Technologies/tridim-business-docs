@@ -19,7 +19,13 @@ Authorized inventory managers can record:
 
 Every movement records the product, quantity, actor, time, reason, and a request idempotency key. Quantities use three decimal places and must be positive. Issues, adjustment decreases, and transfers cannot reduce stock below zero. Repeating a movement request with the same key and payload returns the original movement; reusing its key for different data is rejected.
 
-On-hand quantities are derived from the movement history. The inventory view shows per-location balances and an organization-wide total. Active products below a positive reorder point appear in the low-stock view and purchasing suggestions. A threshold is informational and does not automatically create or issue a purchase order. Movement records cannot be edited or deleted through the application. Corrections are recorded as new movements. Locations with stock on hand cannot be deactivated.
+On-hand quantities are derived from the movement history. The inventory view shows per-location balances and organization-wide totals for on-hand, reserved, and available stock. Available stock is `on hand - active reservations`. A positive reorder point is compared with on-hand quantities and does not automatically create or issue a purchase order. Movement records cannot be edited or deleted through the application. Corrections are recorded as new movements. Locations with stock on hand cannot be deactivated.
+
+## Reserve materials for a job
+
+An owner, admin, or operations member can reserve active products at active locations against a job in the same organization. Reservation quantities are exact decimal strings with three places. Creation is atomic and checks that the requested quantity does not exceed available stock. Concurrent reservations and stock changes use the same organization lock, preventing multiple jobs from claiming the same units.
+
+Reservations are immutable. If planned quantities change, release unused quantities and create a replacement reservation; the previous record remains in job history. Direct issues, adjustment decreases, and transfers cannot consume reserved stock. When recording materials used, select the job's reservation line to consume from it. Partial consumption decreases its remaining reserved amount and records the regular inventory issue movement. Direct material issues remain available for unreserved stock. Releasing a reservation frees available quantity but does not change on-hand quantity.
 
 ## Issue materials to a job
 
@@ -31,17 +37,19 @@ This records material consumption and reduces stock immediately. It does not res
 
 | Method | Route | Purpose |
 |---|---|---|
-| `GET` | `/api/organizations/{organization_id}/inventory/` | List products with per-location balances, locations, and the latest 100 movements |
+| `GET` | `/api/organizations/{organization_id}/inventory/` | List products with per-location on-hand, reserved, and available quantities, locations, and the latest 100 movements |
 | `POST` | `/api/organizations/{organization_id}/inventory/products/` | Create a product |
 | `PATCH` | `/api/organizations/{organization_id}/inventory/products/{product_id}/` | Update product fields |
 | `POST` | `/api/organizations/{organization_id}/inventory/locations/` | Create a location |
 | `PATCH` | `/api/organizations/{organization_id}/inventory/locations/{location_id}/` | Update a location; deactivation requires zero stock |
 | `GET`, `POST` | `/api/organizations/{organization_id}/inventory/movements/` | List recent movements or record one |
 | `POST` | `/api/organizations/{organization_id}/jobs/{job_id}/material-issues/` | Record one or more quantity-only stock issue lines against a job |
+| `GET`, `POST` | `/api/organizations/{organization_id}/jobs/{job_id}/material-reservations/` | Read job reservations or reserve available quantities |
+| `POST` | `/api/organizations/{organization_id}/jobs/{job_id}/material-reservations/{reservation_id}/release/` | Release unused quantities from an active reservation |
 
 Movement requests use `product_id`, `kind`, `location_id`, `quantity`, `reason`, and a UUID `idempotency_key`. A transfer also uses `destination_id`. An adjustment uses `direction` set to `increase` or `decrease`. Send quantity as a decimal string for exact validation.
 
-Job material issue requests use `idempotency_key`, `reason`, and a `lines` array containing `product_id`, `location_id`, and decimal-string `quantity` values. A product and location pair can appear once per request.
+Job material issue requests use `idempotency_key`, `reason`, and a `lines` array containing `product_id`, `location_id`, and decimal-string `quantity` values. A line can include `reservation_line_id` to consume a reservation for that job. A product and location pair can appear once per request. Reservation requests use the same line fields without `reservation_line_id` and have their own idempotency key.
 
 ## Current limits
 
