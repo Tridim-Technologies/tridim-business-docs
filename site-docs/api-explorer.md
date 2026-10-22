@@ -52,13 +52,15 @@ Route details are based on the current application source. Use the linked reposi
 | Daraja sandbox | `GET` | `/api/organizations/{organization_id}/daraja/sandbox-attempts/{attempt_id}/` | Read a sandbox attempt |
 | Daraja sandbox | `POST` | `/api/organizations/{organization_id}/daraja/sandbox-attempts/{attempt_id}/reconcile/` | Retry sandbox status reconciliation |
 | Daraja callback | `POST` | `/api/payments/daraja/sandbox/stk/callback/` | Receive a provider sandbox callback; not a user-facing route |
-| Inventory | `GET` | `/api/organizations/{organization_id}/inventory/` | List products with `reorder_point`, total `on_hand_quantity`, per-location balances, locations, and recent movements |
+| Inventory | `GET` | `/api/organizations/{organization_id}/inventory/` | List products with `reorder_point`, total on-hand/reserved/available quantities, per-location balances, locations, and recent movements |
 | Inventory products | `POST` | `/api/organizations/{organization_id}/inventory/products/` | Create a product |
 | Inventory products | `PATCH` | `/api/organizations/{organization_id}/inventory/products/{product_id}/` | Update product catalog fields |
 | Inventory locations | `POST` | `/api/organizations/{organization_id}/inventory/locations/` | Create a stock location |
 | Inventory locations | `PATCH` | `/api/organizations/{organization_id}/inventory/locations/{location_id}/` | Update a stock location |
 | Inventory movements | `GET`, `POST` | `/api/organizations/{organization_id}/inventory/movements/` | List or record a stock movement |
 | Jobs | `POST` | `/api/organizations/{organization_id}/jobs/{job_id}/material-issues/` | Record quantity-only inventory issue lines against a job (owner/admin/operations) |
+| Job material reservations | `GET`, `POST` | `/api/organizations/{organization_id}/jobs/{job_id}/material-reservations/` | Read or create location-specific reservations against available stock (owner/admin/operations) |
+| Job material reservations | `POST` | `/api/organizations/{organization_id}/jobs/{job_id}/material-reservations/{reservation_id}/release/` | Release unused quantities from an active job reservation (owner/admin/operations) |
 | Purchasing | `GET` | `/api/organizations/{organization_id}/purchasing/` | List suppliers, orders with receipt history, products, locations, and `reorder_suggestions` with on-hand, on-order, and suggested quantities |
 | Suppliers | `POST` | `/api/organizations/{organization_id}/purchasing/suppliers/` | Create a supplier (owner/admin/operations) |
 | Suppliers | `PATCH` | `/api/organizations/{organization_id}/purchasing/suppliers/{supplier_id}/` | Update supplier code, name, or active state |
@@ -78,5 +80,6 @@ Route details are based on the current application source. Use the linked reposi
 - Invitation routes use one-time tokens; the raw token is returned only when a manager creates an invitation. The app does not send invitation email or verify mailbox ownership.
 - Use synthetic data and sandbox credentials only. The local evidence routes fail closed without a scanner and are not a production integration contract.
 - Purchasing quantities use exact decimal strings. Receipt POST requests require a UUID idempotency key; all receipt lines and linked inventory movements are committed together.
+- Inventory GET responses include per-location on-hand, reserved, and available quantities. Reservation creation and stock decreases serialize on the organization; reservation POST and job-material issue POST requests require UUID idempotency keys. An issue line may include `reservation_line_id` to consume an active reservation for the same job; unused reservation quantities require explicit release.
 
 For implementation details, see [`backend/config/urls.py`](https://github.com/Tridim-Technologies/tridim-business/blob/main/backend/config/urls.py) and the [source repository](https://github.com/Tridim-Technologies/tridim-business).
