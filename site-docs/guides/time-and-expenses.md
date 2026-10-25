@@ -49,6 +49,23 @@ This path is disabled outside local debug mode and is not a production storage o
 
 The separate local deletion journal can replay synthetic deletes after some older local restores, but it is not an independent production recovery service. See the [expense-evidence recovery guide](evidence-recovery.md) for the current boundary and production gate.
 
+## Local operating checklist
+
+Before enabling synthetic uploads, run:
+
+```sh
+uv run python backend/manage.py check_local_readiness
+```
+
+This checks local debug mode, host policy, bounded evidence settings, private
+paths, cleanup commands, and the ClamAV Unix socket when scanning is enabled.
+It is a diagnostic for synthetic development only and never authorizes real
+evidence, hosted deployment, or production use. During local callback or login
+rehearsals, run `uv run python backend/manage.py cleanup_abuse_records` at least
+every five minutes. After evidence tests, run
+`uv run python backend/manage.py cleanup_expense_evidence`. Use disposable
+synthetic data and remove only temporary directories created for the rehearsal.
+
 ## Expected result
 
 Time entries and expense claims appear on the associated job or in the expense register with their status and review history. The records make submitted work and review decisions visible to the organization.
