@@ -15,6 +15,10 @@ Tridim Business is being built around linked operational records, so teams can f
 8. **Invoice and record collection.** Finance members can create an invoice from completed work, record manual receipts, allocate them to invoices, and reverse allocations or receipts.
 9. **Review finance exports.** Finance members can export available invoice and payment data.
 
+## Optional public catalog
+
+Owners and administrators can publish a separate read-only catalog of selected active products. Anonymous visitors see only the storefront name, currency, and explicitly published product names, public descriptions, units, and prices. This catalog is not connected to order creation, checkout, payments, or stock reservation.
+
 ## Payment integration boundary
 
 The current Daraja M-Pesa Express integration is sandbox-only and intended for synthetic data. It supports a sandbox payment attempt and status flow; it does not automatically create a finance receipt or enable live settlement.

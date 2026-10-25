@@ -45,6 +45,14 @@ Quotation pricing and taxes are not calculated by the current product.
 - Reservations, unit conversion, costing, valuation, supplier pricing, tax, and accounting integration are not included.
 - Material use is not valued or linked to invoice lines or accounting entries.
 
+## Merchant storefront
+
+- Configure an optional public storefront with a unique URL slug, display name, and one currency.
+- Let owners and administrators add customer-facing descriptions and prices and explicitly publish or hide products.
+- Show active, published products on a separate anonymous, read-only catalog page.
+- Keep SKU, stock, reorder points, supplier information, orders, and payments out of the public catalog.
+- The catalog does not provide customer accounts, a cart, checkout, orders, payment collection, or stock reservation.
+
 ## Invoicing and payments
 
 - Create invoices from completed jobs.
