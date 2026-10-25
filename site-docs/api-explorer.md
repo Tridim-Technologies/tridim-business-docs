@@ -52,6 +52,8 @@ Route details are based on the current application source. Use the linked reposi
 | Daraja sandbox | `GET` | `/api/organizations/{organization_id}/daraja/sandbox-attempts/{attempt_id}/` | Read a sandbox attempt |
 | Daraja sandbox | `POST` | `/api/organizations/{organization_id}/daraja/sandbox-attempts/{attempt_id}/reconcile/` | Retry sandbox status reconciliation |
 | Daraja callback | `POST` | `/api/payments/daraja/sandbox/stk/callback/` | Receive a provider sandbox callback; not a user-facing route |
+| Storefront profile | `GET`, `PUT` | `/api/organizations/{organization_id}/storefront/` | Read or update a storefront profile (owner/admin; `PUT` supplies slug, display name, currency, and publication state) |
+| Public storefront | `GET` | `/api/storefronts/{slug}/` | Anonymous read-only catalog of active, published products; response excludes SKU, stock, reorder, and supplier data |
 | Inventory | `GET` | `/api/organizations/{organization_id}/inventory/` | List products with `reorder_point`, total on-hand/reserved/available quantities, per-location balances, locations, and recent movements |
 | Inventory products | `POST` | `/api/organizations/{organization_id}/inventory/products/` | Create a product |
 | Inventory products | `PATCH` | `/api/organizations/{organization_id}/inventory/products/{product_id}/` | Update product catalog fields |
@@ -74,6 +76,7 @@ Route details are based on the current application source. Use the linked reposi
 
 - The web app uses a Django session cookie. Obtain a CSRF token from `/api/csrf/` before unsafe session-authenticated requests.
 - Organization routes require membership in the `{organization_id}` tenant. Domain operations also check the caller's role.
+- Storefront profile management requires organization membership; only owners and admins can write it. The public storefront route is anonymous and returns only explicitly published storefront fields.
 - JSON is used for request and response bodies unless the route returns a CSV export or a plain-text health response.
 - Evidence uploads use `multipart/form-data`, the session cookie, and a CSRF token. Let the browser set the multipart `Content-Type` boundary. Evidence downloads are per-request authorized; finance metadata access does not grant receipt access.
 - The Daraja callback is a provider endpoint. It is not an alternate login method and does not create a finance receipt.

@@ -8,6 +8,14 @@ Owners, administrators, and operations members can add products and locations an
 
 Owners, administrators, operations, sales, and finance members can view inventory. Other roles do not have access. API identifiers are resolved within the selected organization.
 
+## Public merchant catalog
+
+An organization can optionally publish a separate read-only product catalog at `/store/{slug}/`. Owners and administrators configure the public store name, unique lowercase URL slug, three-letter currency code, and publication state. Only owners and administrators can edit storefront details or a product's public description, price, and publication state.
+
+A product must be active and explicitly published, with a non-empty public description and a non-negative price, before it appears. The anonymous catalog response contains the storefront name, slug and currency, plus each listed product's name, public description, unit and price. It excludes SKU, stock quantities, reorder points, supplier data, and records from other organizations.
+
+The catalog is read-only. It does not accept customer accounts, carts, orders, payments, or stock reservations. Public listings are visible to anyone who has the URL.
+
 ## Record stock changes
 
 Authorized inventory managers can record:
@@ -38,6 +46,8 @@ This records material consumption and reduces stock immediately. It does not res
 | Method | Route | Purpose |
 |---|---|---|
 | `GET` | `/api/organizations/{organization_id}/inventory/` | List products with per-location on-hand, reserved, and available quantities, locations, and the latest 100 movements |
+| `GET`, `PUT` | `/api/organizations/{organization_id}/storefront/` | Read or update the storefront profile (owner/admin; all profile fields are required for `PUT`) |
+| `GET` | `/api/storefronts/{slug}/` | Anonymous, read-only catalog for a published storefront; only active and published products are returned |
 | `POST` | `/api/organizations/{organization_id}/inventory/products/` | Create a product |
 | `PATCH` | `/api/organizations/{organization_id}/inventory/products/{product_id}/` | Update product fields |
 | `POST` | `/api/organizations/{organization_id}/inventory/locations/` | Create a location |
